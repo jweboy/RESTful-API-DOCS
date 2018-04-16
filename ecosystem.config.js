@@ -33,12 +33,11 @@ module.exports = {
       user: 'root',
       host: '118.24.155.105',
       ref: 'origin/master',
-      repo: 'git@github.com:jweboy/node-resful-server.git',
-      path: '/home/www/service/node-resful-server',
+      repo: 'git@github.com:jweboy/resful-api-docs-swagger.git',
+      path: '/home/www/project/resful-api-docs-swagger',
       ssh_options: 'StrictHostKeyChecking=no',
-      'pre-deploy-local': "echo 'pm2部署测试'",
-      'pre-deploy': 'git fetch',
-      'post-deploy': 'git pull origin master && yarn && yarn run pm2:pro',
+      'pre-deploy': 'git fetch && git pull origin master',
+      'post-deploy': 'yarn && yarn deploy',
       'env': {
         'NODE_ENV': 'production'
       }
