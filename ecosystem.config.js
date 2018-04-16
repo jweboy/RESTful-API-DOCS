@@ -12,13 +12,13 @@ module.exports = {
         'node_modules'
       ],
       env: {
-        PORT: 3002,
+        PORT: 4000,
         NODE_ENV: 'development',
         HOST: '127.0.0.1',
         COMMON_VARIABLE: true
       },
       env_production: {
-        PORT: 3003,
+        PORT: 4001,
         NODE_ENV: 'production',
         HOST: '118.24.155.105'
       }
