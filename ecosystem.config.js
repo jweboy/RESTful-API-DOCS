@@ -37,7 +37,7 @@ module.exports = {
       path: '/home/www/project/resful-api-docs-swagger',
       ssh_options: 'StrictHostKeyChecking=no',
       'pre-deploy': 'git fetch && git pull origin master',
-      'post-deploy': 'yarn && yarn deploy',
+      'post-deploy': 'yarn && yarn pm2:dev',
       'env': {
         'NODE_ENV': 'production'
       }
