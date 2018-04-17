@@ -18,7 +18,7 @@ module.exports = {
         COMMON_VARIABLE: true
       },
       env_production: {
-        PORT: 4001,
+        PORT: 4001, // 线上这个端口有问题，暂时部署development
         NODE_ENV: 'production',
         HOST: '118.24.155.105'
       }

@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "nodemon ./app.js",
-    "deploy": "pm2 startOrRestart ecosystem.config.js --env production steup"
+    "deploy": "pm2 startOrRestart ecosystem.config.js --env production steup",
+    "pm2:dev": "pm2 start ecosystem.config.js --env development"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
