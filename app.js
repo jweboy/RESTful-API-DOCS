@@ -12,6 +12,7 @@ app
 
 const PORT = process.env.PORT || 4000
 const HOST = process.env.HOST || '127.0.0.1'
+const PROTOCOL = 'http'
 
 app.listen(PORT, HOST)
-console.log(`Server listening on ${HOST}:${PORT}!`)
+console.log(`Server listening on ${PROTOCOL}://${HOST}:${PORT}!`)

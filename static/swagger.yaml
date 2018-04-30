@@ -1,0 +1,92 @@
+---
+swagger: "2.0"
+info:
+  description: 基于node开发的resful api, 用于个人实践项目。
+  version: 0.0.2
+  title: node-resful-api
+  contact:
+    email: jweboy0630@gmail.com
+host: 118.24.155.105
+basePath: /api
+tags:
+- name: picture-upload
+  description: 图片处理相关操作
+schemes:
+- http
+paths:
+  /upload/picture:
+    post:
+      tags:
+      - picture-upload
+      summary: 图片上传
+      description: 只支持图片上传,暂不支持其他类型文件。
+      consumes:
+      - multipart/form-data
+      parameters:
+      - name: upfile
+        in: formData
+        description: 需要上传的图片文件
+        required: true
+        type: file
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad Request
+  /upload/picture/{fileKey}:
+    delete:
+      tags:
+      - picture-upload
+      summary: 图片删除
+      description: 删除图片,需要指定一个fileKey
+      produces:
+      - application/json
+      parameters:
+      - name: fileKey
+        in: path
+        description: 需要删除的文件名称
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad Request
+  /upload/picture/list:
+    get:
+      tags:
+      - picture-upload
+      summary: 图片列表接口(暂时没有分页)
+      description: 获取图片列表，暂时不需要参数
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/uploadList'
+        400:
+          description: Bad Request
+definitions:
+  uploadList:
+    type: object
+    required:
+    - id
+    - name
+    - putTime
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      name:
+        type: string
+        example: node.png
+      putTime:
+        type: number
+        example: 1.5235175817658738E16
+    example:
+      putTime: 1.5235175817658738E16
+      name: node.png
+      id: d290f1ee-6c54-4b01-90e6-d701748f0851
